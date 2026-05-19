@@ -1,0 +1,1140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KitchinSutra — Taste Intelligence™</title>
+<meta name="description" content="Luxury Indian ingredient intelligence powered by purity, science, and ancestral culinary process.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+:root{
+--bg:#050505;
+--surface:#0f0f0f;
+--surface2:#151515;
+--card:#101010;
+--text:#f7f7f7;
+--muted:#9f9f9f;
+--green:#4d8d31;
+--green2:#89d56b;
+--gold:#b89f5b;
+--border:rgba(255,255,255,.08);
+--radius:28px;
+--transition:all .5s cubic-bezier(.22,1,.36,1);
+--shadow:0 20px 80px rgba(0,0,0,.5);
+--max:1480px;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+font-family:'Inter',sans-serif;
+background:var(--bg);
+color:var(--text);
+overflow-x:hidden;
+-webkit-font-smoothing:antialiased;
+}
+
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+button{font-family:inherit}
+
+.container{
+width:min(92%,var(--max));
+margin:auto;
+}
+
+.blur{
+position:fixed;
+width:700px;
+height:700px;
+border-radius:50%;
+filter:blur(140px);
+pointer-events:none;
+z-index:-1;
+}
+
+.blur.one{
+background:rgba(77,141,49,.22);
+top:-300px;
+left:-250px;
+}
+
+.blur.two{
+background:rgba(184,159,91,.14);
+bottom:-300px;
+right:-250px;
+}
+
+header{
+position:fixed;
+width:100%;
+top:0;
+left:0;
+z-index:999;
+backdrop-filter:blur(24px);
+background:rgba(5,5,5,.6);
+border-bottom:1px solid rgba(255,255,255,.05);
+}
+
+.nav{
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:18px 0;
+}
+
+.logo{
+font-size:2rem;
+font-weight:800;
+letter-spacing:-1px;
+}
+
+.logo span{color:var(--green2)}
+
+.nav-links{
+display:flex;
+gap:34px;
+align-items:center;
+}
+
+.nav-links a{
+font-size:.95rem;
+color:var(--muted);
+transition:var(--transition)
+}
+
+.nav-links a:hover{color:#fff}
+
+.nav-actions{
+display:flex;
+gap:12px;
+align-items:center;
+}
+
+.pill{
+padding:12px 18px;
+border-radius:999px;
+background:rgba(255,255,255,.03);
+border:1px solid var(--border);
+color:#fff;
+cursor:pointer;
+transition:var(--transition)
+}
+
+.pill:hover{transform:translateY(-2px)}
+
+.menu-toggle{display:none}
+
+.hero{
+min-height:100vh;
+display:flex;
+align-items:center;
+padding-top:120px;
+position:relative;
+overflow:hidden;
+}
+
+.hero-grid{
+display:grid;
+grid-template-columns:1.1fr 1fr;
+gap:60px;
+align-items:center;
+}
+
+.eyebrow{
+display:inline-flex;
+padding:10px 18px;
+border-radius:999px;
+border:1px solid var(--border);
+background:rgba(255,255,255,.03);
+margin-bottom:26px;
+color:var(--green2);
+font-size:.85rem;
+}
+
+.hero h1{
+font-size:clamp(4rem,8vw,8rem);
+line-height:.92;
+letter-spacing:-5px;
+margin-bottom:24px;
+}
+
+.hero p{
+max-width:650px;
+line-height:1.9;
+font-size:1.15rem;
+color:var(--muted);
+margin-bottom:40px;
+}
+
+.hero-actions{
+display:flex;
+gap:18px;
+flex-wrap:wrap;
+}
+
+.primary-btn{
+padding:16px 30px;
+border-radius:999px;
+background:linear-gradient(135deg,var(--green),var(--green2));
+color:#fff;
+font-weight:700;
+box-shadow:0 10px 40px rgba(77,141,49,.25);
+transition:var(--transition)
+}
+
+.secondary-btn{
+padding:16px 30px;
+border-radius:999px;
+border:1px solid var(--border);
+background:rgba(255,255,255,.03);
+transition:var(--transition)
+}
+
+.primary-btn:hover,.secondary-btn:hover{
+transform:translateY(-4px)
+}
+
+.hero-visual{
+position:relative;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+.hero-glow{
+position:absolute;
+width:560px;
+height:560px;
+border-radius:50%;
+background:radial-gradient(circle,rgba(77,141,49,.3),transparent 70%);
+filter:blur(50px);
+}
+
+.hero-pack{
+width:540px;
+filter:drop-shadow(0 40px 80px rgba(0,0,0,.8));
+animation:float 6s ease-in-out infinite;
+position:relative;
+z-index:2;
+}
+
+@keyframes float{
+0%{transform:translateY(0)}
+50%{transform:translateY(-18px)}
+100%{transform:translateY(0)}
+}
+
+section{padding:120px 0}
+
+.section-header{margin-bottom:60px}
+.section-label{
+text-transform:uppercase;
+letter-spacing:2px;
+font-size:.8rem;
+color:var(--green2);
+margin-bottom:18px;
+}
+
+.section-title{
+font-size:clamp(2.5rem,5vw,5rem);
+line-height:1;
+letter-spacing:-3px;
+max-width:980px;
+}
+
+.trust-grid,.products-grid,.recipe-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:24px;
+}
+
+.trust-card,.product-card,.recipe-card{
+background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.02));
+border:1px solid rgba(255,255,255,.06);
+border-radius:32px;
+overflow:hidden;
+transition:var(--transition);
+}
+
+.trust-card:hover,.product-card:hover,.recipe-card:hover{
+transform:translateY(-8px);
+border-color:rgba(137,213,107,.3)
+}
+
+.trust-card{
+padding:36px;
+min-height:280px;
+display:flex;
+flex-direction:column;
+justify-content:space-between;
+}
+
+.icon{
+width:60px;
+height:60px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+background:rgba(255,255,255,.03);
+border:1px solid rgba(255,255,255,.08);
+color:var(--green2);
+font-weight:700;
+}
+
+.trust-card h3{margin:20px 0 12px;font-size:1.3rem}
+.trust-card p,.recipe-content p,.footer-links a,.footer-brand p{color:var(--muted);line-height:1.8}
+
+.category-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:24px;
+}
+
+.category-card{
+position:relative;
+overflow:hidden;
+border-radius:34px;
+min-height:420px;
+padding:36px;
+display:flex;
+flex-direction:column;
+justify-content:space-between;
+transition:var(--transition)
+}
+
+.category-card:hover{transform:translateY(-10px)}
+.category-card h3{font-size:2rem;line-height:1;max-width:240px}
+.category-card p{max-width:260px;line-height:1.8;color:rgba(255,255,255,.85)}
+.category-pack{
+position:absolute;
+right:-30px;
+bottom:-20px;
+width:240px;
+opacity:.9;
+}
+
+.green{background:linear-gradient(135deg,#224214,#4d8d31)}
+.brown{background:linear-gradient(135deg,#3e2717,#714829)}
+.amber{background:linear-gradient(135deg,#744400,#c98208)}
+.blue{background:linear-gradient(135deg,#0f3355,#206eb8)}
+.purple{background:linear-gradient(135deg,#43205d,#7c45a4)}
+.teal{background:linear-gradient(135deg,#074149,#0f99a7)}
+.orange{background:linear-gradient(135deg,#6d2509,#d55b18)}
+.magenta{background:linear-gradient(135deg,#561634,#bd3273)}
+
+.search-box{
+margin-bottom:40px;
+}
+
+.search-input{
+width:100%;
+padding:24px 28px;
+border-radius:28px;
+background:rgba(255,255,255,.03);
+border:1px solid rgba(255,255,255,.08);
+color:#fff;
+font-size:1rem;
+outline:none;
+transition:var(--transition)
+}
+
+.search-input:focus{
+border-color:rgba(137,213,107,.4)
+}
+
+.filter-bar{
+display:flex;
+gap:14px;
+flex-wrap:wrap;
+}
+
+.filter-pill{
+padding:14px 20px;
+border-radius:999px;
+border:1px solid rgba(255,255,255,.08);
+background:rgba(255,255,255,.03);
+cursor:pointer;
+transition:var(--transition)
+}
+
+.filter-pill.active,.filter-pill:hover{
+background:var(--green);
+border-color:var(--green)
+}
+
+.compound-panel{
+background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.01));
+border:1px solid rgba(255,255,255,.08);
+border-radius:40px;
+padding:60px;
+}
+
+.compound-row{
+display:grid;
+grid-template-columns:1fr auto;
+align-items:center;
+gap:24px;
+padding:28px 0;
+border-bottom:1px solid rgba(255,255,255,.06)
+}
+
+.compound-row:last-child{border:none}
+.compound-row h3{font-size:1.5rem;margin-bottom:10px}
+.compound-row p{color:var(--muted)}
+
+.meter{
+width:300px;
+height:14px;
+border-radius:999px;
+background:rgba(255,255,255,.08);
+overflow:hidden;
+}
+
+.fill{
+height:100%;
+border-radius:999px;
+background:linear-gradient(90deg,var(--green),var(--green2));
+}
+
+.product-top{
+padding:40px;
+min-height:360px;
+display:flex;
+align-items:center;
+justify-content:center;
+background:radial-gradient(circle at top,rgba(77,141,49,.18),transparent 70%);
+}
+
+.product-top img{
+width:70%;
+filter:drop-shadow(0 30px 60px rgba(0,0,0,.5));
+}
+
+.product-bottom{padding:28px}
+.product-bottom h3{font-size:1.3rem;margin-bottom:8px}
+.product-bottom p{color:var(--muted);margin-bottom:20px}
+
+.size-selector{
+display:flex;
+gap:10px;
+margin-bottom:24px;
+}
+
+.size-btn{
+padding:10px 16px;
+border-radius:999px;
+background:rgba(255,255,255,.03);
+border:1px solid rgba(255,255,255,.08);
+color:#fff;
+cursor:pointer;
+transition:var(--transition)
+}
+
+.size-btn.active{background:var(--green);border-color:var(--green)}
+
+.product-footer{
+display:flex;
+align-items:center;
+justify-content:space-between;
+}
+
+.price{font-size:1.1rem;font-weight:800}
+
+.add-btn{
+padding:12px 18px;
+border-radius:999px;
+background:rgba(255,255,255,.04);
+border:1px solid rgba(255,255,255,.08);
+color:#fff;
+cursor:pointer;
+transition:var(--transition)
+}
+
+.add-btn:hover{background:var(--green)}
+
+.recipe-image{
+height:240px;
+background:linear-gradient(135deg,#3a2813,#5f411d)
+}
+
+.recipe-content{padding:28px}
+.recipe-content h3{font-size:1.4rem;margin-bottom:12px}
+
+.subscription{
+background:linear-gradient(135deg,#13240c,#1c3512);
+border-radius:40px;
+padding:80px;
+position:relative;
+overflow:hidden;
+}
+
+.subscription h2{
+font-size:clamp(3rem,5vw,5rem);
+line-height:1;
+letter-spacing:-3px;
+margin-bottom:24px;
+max-width:800px;
+}
+
+.subscription p{
+max-width:680px;
+line-height:1.9;
+color:rgba(255,255,255,.78);
+margin-bottom:36px;
+}
+
+.story-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:40px;
+}
+
+.story-card{
+padding:48px;
+border-radius:32px;
+background:rgba(255,255,255,.03);
+border:1px solid rgba(255,255,255,.06);
+min-height:340px;
+}
+
+.story-card h3{
+font-size:2rem;
+margin-bottom:18px;
+}
+
+.story-card p{
+line-height:1.9;
+color:var(--muted)
+}
+
+footer{
+padding:100px 0 60px;
+border-top:1px solid rgba(255,255,255,.06)
+}
+
+.footer-grid{
+display:grid;
+grid-template-columns:1.5fr 1fr 1fr 1fr;
+gap:40px;
+}
+
+.footer-brand h2{
+font-size:2.5rem;
+margin-bottom:18px;
+}
+
+.footer-links h4{margin-bottom:18px}
+.footer-links a{display:block;margin-bottom:8px}
+
+.footer-bottom{
+margin-top:60px;
+padding-top:30px;
+border-top:1px solid rgba(255,255,255,.06);
+display:flex;
+justify-content:space-between;
+color:var(--muted)
+}
+
+.mobile-menu{
+position:fixed;
+top:88px;
+left:0;
+width:100%;
+background:rgba(5,5,5,.97);
+backdrop-filter:blur(30px);
+padding:40px;
+display:flex;
+flex-direction:column;
+gap:24px;
+transform:translateY(-120%);
+transition:var(--transition);
+z-index:998;
+}
+
+.mobile-menu.active{transform:translateY(0)}
+.mobile-menu a{font-size:1.2rem}
+
+@media(max-width:1280px){
+.category-grid{grid-template-columns:repeat(2,1fr)}
+.trust-grid,.products-grid,.recipe-grid{grid-template-columns:repeat(2,1fr)}
+}
+
+@media(max-width:980px){
+.hero-grid,.story-grid,.footer-grid{grid-template-columns:1fr}
+.category-grid,.trust-grid,.products-grid,.recipe-grid{grid-template-columns:1fr}
+.nav-links{display:none}
+.menu-toggle{display:flex}
+.hero{text-align:center}
+.hero-actions{justify-content:center}
+.hero-pack{width:90%}
+.compound-row{grid-template-columns:1fr}
+.meter{width:100%}
+.subscription{padding:48px 32px}
+.footer-bottom{flex-direction:column;gap:16px}
+}
+</style>
+</head>
+<body>
+
+<div class="blur one"></div>
+<div class="blur two"></div>
+
+<div class="mobile-menu">
+<a href="#shop">Shop</a>
+<a href="#benefits">Benefits</a>
+<a href="#recipes">Recipes</a>
+<a href="#origin">Single Origin</a>
+<a href="#subscriptions">Subscriptions</a>
+</div>
+
+<header>
+<div class="container nav">
+<div class="logo">Kitchin<span>Sutra</span></div>
+
+<div class="nav-links">
+<a href="#shop">Shop</a>
+<a href="#origin">Single Origin</a>
+<a href="#benefits">Benefits</a>
+<a href="#recipes">Recipes</a>
+<a href="#lab">Lab Tested</a>
+</div>
+
+<div class="nav-actions">
+<button class="pill menu-toggle">☰</button>
+<button class="pill region-toggle">🇨🇦 Canada</button>
+<button class="pill language-toggle">EN / FR</button>
+</div>
+</div>
+</header>
+
+<main>
+
+<section class="hero">
+<div class="container hero-grid">
+<div>
+<div class="eyebrow">Taste Intelligence™</div>
+<h1>Luxury Indian Spice Intelligence.</h1>
+<p>
+Scientifically verified spices with exceptional active compound integrity, stone silbatta processing, and export-grade purity.
+</p>
+<div class="hero-actions">
+<a href="#shop" class="primary-btn">Explore Collection</a>
+<a href="#compounds" class="secondary-btn">Discover Compounds</a>
+</div>
+</div>
+
+<div class="hero-visual">
+<div class="hero-glow"></div>
+<img class="hero-pack" src="Product Mockup - Dhaniya Powder.png" alt="KitchinSutra Product">
+</div>
+</div>
+</section>
+
+<section id="benefits">
+<div class="container">
+<div class="section-header">
+<div class="section-label">Why KitchinAI</div>
+<h2 class="section-title">Built around purity, process, and measurable ingredient intelligence.</h2>
+</div>
+
+<div class="trust-grid">
+<div class="trust-card">
+<div class="icon">✦</div>
+<div>
+<h3>Stone Silbatta Ground</h3>
+<p>Traditional grinding preserves natural oils, aroma, and volatile compounds.</p>
+</div>
+</div>
+
+<div class="trust-card">
+<div class="icon">⚗</div>
+<div>
+<h3>Lab Tested</h3>
+<p>Every batch verified for purity, potency, and export-grade compliance.</p>
+</div>
+</div>
+
+<div class="trust-card">
+<div class="icon">N₂</div>
+<div>
+<h3>Nitrogen Packed</h3>
+<p>Vacuum nitrogen sealing locks freshness and active compounds longer.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="shop">
+<div class="container">
+<div class="section-header">
+<div class="section-label">Collections</div>
+<h2 class="section-title">Eight master ingredient systems designed to scale globally.</h2>
+</div>
+
+<div class="category-grid">
+<div class="category-card green">
+<div><h3>Powdered Spices</h3></div>
+<p>Everyday essentials with high active compound integrity.</p>
+<img class="category-pack" src="Product Mockup - Dhaniya Powder.png">
+</div>
+
+<div class="category-card brown">
+<div><h3>Whole Spices</h3></div>
+<p>Single ingredient whole spices sourced from premium regions.</p>
+<img class="category-pack" src="Product Mockup - Dhaniya Powder.png">
+</div>
+
+<div class="category-card amber">
+<div><h3>Functional Spices</h3></div>
+<p>Benefit-led culinary ingredients for wellness kitchens.</p>
+<img class="category-pack" src="Product Mockup - Dhaniya Powder.png">
+</div>
+
+<div class="category-card blue">
+<div><h3>Single Origin</h3></div>
+<p>Regional terroir-focused ingredients with traceable sourcing.</p>
+<img class="category-pack" src="Product Mockup - Dhaniya Powder.png">
+</div>
+
+<div class="category-card purple">
+<div><h3>Global Seasonings</h3></div>
+<p>International culinary blends crafted for modern kitchens.</p>
+<img class="category-pack" src="Product Mockup - Dhaniya Powder.png">
+</div>
+
+<div class="category-card teal">
+<div><h3>Table Sprinklers</h3></div>
+<p>Premium finishing seasonings designed for everyday table use.</p>
+<img class="category-pack" src="Product Mockup - Dhaniya Powder.png">
+</div>
+
+<div class="category-card orange">
+<div><h3>Blended Masalas</h3></div>
+<p>Rich multi-ingredient masalas crafted for authentic cooking.</p>
+<img class="category-pack" src="Product Mockup - Dhaniya Powder.png">
+</div>
+
+<div class="category-card magenta">
+<div><h3>Combos & Kits</h3></div>
+<p>Curated culinary systems and gifting experiences.</p>
+<img class="category-pack" src="Product Mockup - Dhaniya Powder.png">
+</div>
+</div>
+</div>
+</section>
+
+<section>
+<div class="container">
+<div class="section-header">
+<div class="section-label">Smart Discovery</div>
+<h2 class="section-title">Search by benefits, compounds, cuisines, or ingredient intelligence.</h2>
+</div>
+
+<div class="search-box">
+<input class="search-input" type="text" placeholder="Search turmeric, digestion support, curcumin, chai spices...">
+</div>
+
+<div class="filter-bar">
+<button class="filter-pill active">All</button>
+<button class="filter-pill">Anti-inflammatory</button>
+<button class="filter-pill">Digestion Support</button>
+<button class="filter-pill">High Piperine</button>
+<button class="filter-pill">Cooling & Detox</button>
+<button class="filter-pill">Chef Recommended</button>
+</div>
+</div>
+</section>
+
+<section id="compounds">
+<div class="container">
+<div class="section-header">
+<div class="section-label">Active Compound Intelligence</div>
+<h2 class="section-title">Scientific ingredient integrity you can actually measure.</h2>
+</div>
+
+<div class="compound-panel">
+<div class="compound-row">
+<div>
+<h3>Turmeric — Curcumin 4.5%</h3>
+<p>Industry average typically ranges between 1.5%–2.2%</p>
+</div>
+<div class="meter"><div class="fill" style="width:82%"></div></div>
+</div>
+
+<div class="compound-row">
+<div>
+<h3>Black Pepper — Piperine 5.6%</h3>
+<p>Enhanced aroma, absorption, and culinary intensity.</p>
+</div>
+<div class="meter"><div class="fill" style="width:92%"></div></div>
+</div>
+
+<div class="compound-row">
+<div>
+<h3>Coriander — Linalool Rich</h3>
+<p>Cooling profile with digestive and aromatic support.</p>
+</div>
+<div class="meter"><div class="fill" style="width:70%"></div></div>
+</div>
+</div>
+</div>
+</section>
+
+<section>
+<div class="container">
+<div class="section-header">
+<div class="section-label">Bestsellers</div>
+<h2 class="section-title">Export-grade spices designed for modern kitchens.</h2>
+</div>
+
+<div class="products-grid">
+<div class="product-card">
+<div class="product-top">
+<img src="Product Mockup - Dhaniya Powder.png">
+</div>
+<div class="product-bottom">
+<h3>Coriander Powder</h3>
+<p>Cooling & digestive support</p>
+<div class="size-selector">
+<button class="size-btn active">12g</button>
+<button class="size-btn">60g</button>
+<button class="size-btn">120g</button>
+</div>
+<div class="product-footer">
+<div class="price">CAD $5.99</div>
+<button class="add-btn">Add</button>
+</div>
+</div>
+</div>
+
+<div class="product-card">
+<div class="product-top">
+<img src="Product Mockup - Dhaniya Powder.png">
+</div>
+<div class="product-bottom">
+<h3>Turmeric Powder</h3>
+<p>Curcumin 4.5%</p>
+<div class="size-selector">
+<button class="size-btn active">12g</button>
+<button class="size-btn">60g</button>
+<button class="size-btn">120g</button>
+</div>
+<div class="product-footer">
+<div class="price">CAD $6.99</div>
+<button class="add-btn">Add</button>
+</div>
+</div>
+</div>
+
+<div class="product-card">
+<div class="product-top">
+<img src="Product Mockup - Dhaniya Powder.png">
+</div>
+<div class="product-bottom">
+<h3>Black Pepper Powder</h3>
+<p>Piperine 5.6%</p>
+<div class="size-selector">
+<button class="size-btn active">12g</button>
+<button class="size-btn">60g</button>
+<button class="size-btn">120g</button>
+</div>
+<div class="product-footer">
+<div class="price">CAD $7.99</div>
+<button class="add-btn">Add</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="origin">
+<div class="container">
+<div class="section-header">
+<div class="section-label">From Soil To Silbatta</div>
+<h2 class="section-title">Every spice follows a traceable process designed around purity and preservation.</h2>
+</div>
+
+<div class="story-grid">
+<div class="story-card">
+<h3>Single-Origin Sourcing</h3>
+<p>
+Premium spices sourced from Salem, Malabar, Rajasthan, Kashmir, and other terroir-rich regions across India.
+</p>
+</div>
+
+<div class="story-card">
+<h3>Stone Silbatta Processing</h3>
+<p>
+Slow grinding methods preserve essential oils, volatile aroma compounds, and ingredient integrity.
+</p>
+</div>
+</div>
+</div>
+</section>
+
+<section id="recipes">
+<div class="container">
+<div class="section-header">
+<div class="section-label">Recipe Intelligence</div>
+<h2 class="section-title">Culinary systems designed around flavor, function, and ritual.</h2>
+</div>
+
+<div class="recipe-grid">
+<div class="recipe-card">
+<div class="recipe-image"></div>
+<div class="recipe-content">
+<h3>Golden Turmeric Milk</h3>
+<p>Functional evening ritual designed around high-curcumin turmeric and absorption pairing.</p>
+</div>
+</div>
+
+<div class="recipe-card">
+<div class="recipe-image"></div>
+<div class="recipe-content">
+<h3>Chef’s Tadka Base</h3>
+<p>Traditional Indian aromatic foundation using cumin, coriander, and pepper layering.</p>
+</div>
+</div>
+
+<div class="recipe-card">
+<div class="recipe-image"></div>
+<div class="recipe-content">
+<h3>Digestive Spice Tea</h3>
+<p>Cooling digestive infusion with coriander, cumin, and antioxidant-rich compounds.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="subscriptions">
+<div class="container">
+<div class="subscription">
+<div class="section-label">Subscription Intelligence</div>
+<h2>Build a smarter pantry with personalized monthly ingredient systems.</h2>
+<p>
+Curated spice subscriptions designed around cooking frequency, wellness goals, cuisines, and ingredient intelligence.
+</p>
+<div class="hero-actions">
+<a href="#" class="primary-btn">Explore Subscriptions</a>
+<a href="#" class="secondary-btn">Build Your Kitchen Kit</a>
+</div>
+</div>
+</div>
+</section>
+
+</main>
+
+<footer>
+<div class="container">
+<div class="footer-grid">
+<div class="footer-brand">
+<h2>KitchinSutra</h2>
+<p>Luxury Indian ingredient intelligence powered by purity, science, and ancestral culinary process.</p>
+</div>
+
+<div class="footer-links">
+<h4>Shop</h4>
+<a href="#">Powdered Spices</a>
+<a href="#">Whole Spices</a>
+<a href="#">Seasonings</a>
+<a href="#">Bundles</a>
+</div>
+
+<div class="footer-links">
+<h4>About</h4>
+<a href="#">Our Process</a>
+<a href="#">Lab Tested</a>
+<a href="#">Recipes</a>
+<a href="#">Subscriptions</a>
+</div>
+
+<div class="footer-links">
+<h4>Support</h4>
+<a href="#">Shipping</a>
+<a href="#">Returns</a>
+<a href="#">Contact</a>
+<a href="#">Privacy</a>
+</div>
+</div>
+
+<div class="footer-bottom">
+<div>© 2026 KitchinSutra. Taste Intelligence™</div>
+<div>100% Pure. Period.</div>
+</div>
+</div>
+</footer>
+
+<script>
+
+const menuToggle=document.querySelector('.menu-toggle');
+const mobileMenu=document.querySelector('.mobile-menu');
+
+menuToggle.addEventListener('click',()=>{
+mobileMenu.classList.toggle('active');
+});
+
+const regionButton=document.querySelector('.region-toggle');
+
+const regions=[
+'🇨🇦 Canada',
+'🇺🇸 USA',
+'🇮🇳 India',
+'🇦🇪 UAE'
+];
+
+let regionIndex=0;
+
+regionButton.addEventListener('click',()=>{
+regionIndex=(regionIndex+1)%regions.length;
+regionButton.textContent=regions[regionIndex];
+});
+
+const languageButton=document.querySelector('.language-toggle');
+
+const languages=['EN / FR','FR / EN'];
+let languageIndex=0;
+
+languageButton.addEventListener('click',()=>{
+languageIndex=(languageIndex+1)%languages.length;
+languageButton.textContent=languages[languageIndex];
+});
+
+const sizeButtons=document.querySelectorAll('.size-btn');
+
+sizeButtons.forEach(button=>{
+button.addEventListener('click',()=>{
+const siblings=button.parentElement.querySelectorAll('.size-btn');
+siblings.forEach(btn=>btn.classList.remove('active'));
+button.classList.add('active');
+});
+});
+
+const cards=document.querySelectorAll('.product-card');
+
+cards.forEach(card=>{
+card.addEventListener('mousemove',e=>{
+const rect=card.getBoundingClientRect();
+const x=e.clientX-rect.left;
+const y=e.clientY-rect.top;
+const rotateY=((x/rect.width)-0.5)*10;
+const rotateX=((y/rect.height)-0.5)*-10;
+card.style.transform=`perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px)`;
+});
+
+card.addEventListener('mouseleave',()=>{
+card.style.transform='perspective(1000px) rotateX(0) rotateY(0)';
+});
+});
+
+const revealItems=document.querySelectorAll('.trust-card,.category-card,.product-card,.recipe-card,.story-card');
+
+const observer=new IntersectionObserver(entries=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.style.opacity=1;
+entry.target.style.transform='translateY(0px)';
+}
+});
+},{threshold:.15});
+
+revealItems.forEach(item=>{
+item.style.opacity=0;
+item.style.transform='translateY(60px)';
+item.style.transition='all 1s cubic-bezier(.22,1,.36,1)';
+observer.observe(item);
+});
+
+window.addEventListener('scroll',()=>{
+const scrolled=window.scrollY;
+const heroPack=document.querySelector('.hero-pack');
+heroPack.style.transform=`translateY(${scrolled*.08}px)`;
+});
+
+const productDatabase=[
+{
+name:'Coriander Powder',
+benefit:'Cooling & Detox',
+compound:'Linalool Rich',
+prices:{CAD:5.99,USD:4.99,INR:199,AED:18}
+},
+{
+name:'Turmeric Powder',
+benefit:'Anti-inflammatory',
+compound:'Curcumin 4.5%',
+prices:{CAD:6.99,USD:5.99,INR:249,AED:22}
+},
+{
+name:'Black Pepper Powder',
+benefit:'Absorption Support',
+compound:'Piperine 5.6%',
+prices:{CAD:7.99,USD:6.99,INR:299,AED:26}
+}
+];
+
+function updatePrices(currency){
+const priceEls=document.querySelectorAll('.price');
+
+priceEls.forEach((el,index)=>{
+const p=productDatabase[index];
+if(!p)return;
+
+if(currency==='CAD')el.innerHTML=`CAD $${p.prices.CAD}`;
+if(currency==='USD')el.innerHTML=`USD $${p.prices.USD}`;
+if(currency==='INR')el.innerHTML=`₹ ${p.prices.INR}`;
+if(currency==='AED')el.innerHTML=`AED ${p.prices.AED}`;
+});
+}
+
+regionButton.addEventListener('click',()=>{
+const current=regionButton.textContent;
+if(current.includes('Canada'))updatePrices('CAD');
+if(current.includes('USA'))updatePrices('USD');
+if(current.includes('India'))updatePrices('INR');
+if(current.includes('UAE'))updatePrices('AED');
+});
+
+const addButtons=document.querySelectorAll('.add-btn');
+let cart=[];
+
+addButtons.forEach((button,index)=>{
+button.addEventListener('click',()=>{
+cart.push(productDatabase[index]);
+button.innerHTML='Added ✓';
+button.style.background='#4d8d31';
+
+setTimeout(()=>{
+button.innerHTML='Add';
+button.style.background='rgba(255,255,255,.04)';
+},1500);
+
+console.log(cart);
+});
+});
+
+const filters=document.querySelectorAll('.filter-pill');
+
+filters.forEach(filter=>{
+filter.addEventListener('click',()=>{
+filters.forEach(f=>f.classList.remove('active'));
+filter.classList.add('active');
+});
+});
+
+const searchInput=document.querySelector('.search-input');
+
+searchInput.addEventListener('keyup',e=>{
+console.log('Searching:',e.target.value);
+});
+
+</script>
+</body>
+</html>
